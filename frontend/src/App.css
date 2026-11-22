@@ -1,0 +1,740 @@
+/* ==========================================================================
+   THEME VARIABLES
+   ========================================================================== */
+
+:root {
+  /* Dark mode */
+  --bg-auth: #05070c;
+  --bg-column-left: #0c1322;
+  --bg-showcase: radial-gradient(circle at center, #0f1c30 0%, #05070c 100%);
+
+  --bg-dashboard: #020617;
+  --bg-sidebar: #05070c;
+  --bg-card: #0c1322;
+  --bg-card-soft: #111827;
+  --bg-input: #131c2e;
+  --bg-input-focus: #172237;
+  --bg-table-header: #0f172a;
+  --bg-table-row: #0c1322;
+
+  --border-color: #1e293b;
+  --border-soft: #253247;
+
+  --text-main: #ffffff;
+  --text-muted: #94a3b8;
+  --text-soft: #64748b;
+  --text-inverse: #020617;
+
+  --primary-blue: #3b82f6;
+  --primary-blue-soft: rgba(59, 130, 246, 0.12);
+
+  --success-green: #10b981;
+  --success-green-soft: rgba(16, 185, 129, 0.12);
+
+  --danger-red: #ef4444;
+  --danger-red-soft: rgba(239, 68, 68, 0.12);
+
+  --warning-yellow: #f59e0b;
+  --warning-yellow-soft: rgba(245, 158, 11, 0.12);
+
+  --sidebar-active-bg: linear-gradient(
+    90deg,
+    rgba(59, 130, 246, 0.28) 0%,
+    rgba(15, 23, 42, 0.92) 100%
+  );
+  --sidebar-active-text: #ffffff;
+
+  --shadow-card: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+body.light-mode {
+  /* Light mode */
+  --bg-auth: #f1f5f9;
+  --bg-column-left: #ffffff;
+  --bg-showcase: radial-gradient(circle at center, #dbeafe 0%, #f8fafc 100%);
+
+  --bg-dashboard: #f6f8fb;
+  --bg-sidebar: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-soft: #f8fafc;
+  --bg-input: #f8fafc;
+  --bg-input-focus: #ffffff;
+  --bg-table-header: #f1f5f9;
+  --bg-table-row: #ffffff;
+
+  --border-color: #dbe3ee;
+  --border-soft: #e5edf7;
+
+  --text-main: #020617;
+  --text-muted: #64748b;
+  --text-soft: #94a3b8;
+  --text-inverse: #ffffff;
+
+  --primary-blue: #2563eb;
+  --primary-blue-soft: rgba(37, 99, 235, 0.1);
+
+  --success-green: #059669;
+  --success-green-soft: rgba(5, 150, 105, 0.1);
+
+  --danger-red: #dc2626;
+  --danger-red-soft: rgba(220, 38, 38, 0.1);
+
+  --warning-yellow: #d97706;
+  --warning-yellow-soft: rgba(217, 119, 6, 0.1);
+
+  --sidebar-active-bg: linear-gradient(90deg, #dbeafe 0%, #f1f5ff 100%);
+  --sidebar-active-text: #0f172a;
+
+  --shadow-card: 0 12px 28px rgba(15, 23, 42, 0.06);
+}
+
+/* ==========================================================================
+   GLOBAL RESET
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  transition:
+    background-color 0.22s ease,
+    border-color 0.22s ease,
+    color 0.22s ease,
+    box-shadow 0.22s ease,
+    transform 0.22s ease !important;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+  background-color: var(--bg-dashboard);
+  color: var(--text-main);
+}
+
+body {
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   AUTH LAYOUT
+   ========================================================================== */
+
+.auth-container {
+  display: flex !important;
+  flex-direction: row !important;
+  min-height: 100vh !important;
+  width: 100vw !important;
+  background-color: var(--bg-auth) !important;
+}
+
+.login-column {
+  width: 38% !important;
+  background-color: var(--bg-column-left) !important;
+  padding: 3.5rem 4rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  border-right: 1px solid var(--border-color) !important;
+}
+
+.showcase-column {
+  width: 62% !important;
+  background: var(--bg-showcase) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  position: relative !important;
+  overflow: hidden !important;
+  padding: 2rem !important;
+}
+
+/* ==========================================================================
+   FORM ELEMENTS
+   ========================================================================== */
+
+.input-group {
+  margin-bottom: 1.25rem !important;
+}
+
+.input-label {
+  display: block !important;
+  font-size: 0.7rem !important;
+  font-weight: 700 !important;
+  color: var(--text-muted) !important;
+  letter-spacing: 0.05em !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.input-wrapper {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.input-icon-left {
+  position: absolute !important;
+  left: 1rem !important;
+  color: var(--text-muted) !important;
+  z-index: 5;
+}
+
+.input-icon-right {
+  position: absolute !important;
+  right: 1rem !important;
+  color: var(--text-muted) !important;
+  cursor: pointer !important;
+  background: none !important;
+  border: none !important;
+  z-index: 5;
+}
+
+.form-input,
+input,
+select,
+textarea {
+  color-scheme: light;
+}
+
+body:not(.light-mode) .form-input,
+body:not(.light-mode) input,
+body:not(.light-mode) select,
+body:not(.light-mode) textarea {
+  color-scheme: dark;
+}
+
+.form-input {
+  width: 100% !important;
+  padding: 0.85rem 1rem 0.85rem 2.75rem !important;
+  background-color: var(--bg-input) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 0.5rem !important;
+  color: var(--text-main) !important;
+  font-size: 0.9rem !important;
+}
+
+.form-input:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none !important;
+  border-color: var(--primary-blue) !important;
+  background-color: var(--bg-input-focus) !important;
+}
+
+.form-input::placeholder,
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-muted) !important;
+}
+
+/* ==========================================================================
+   LOGIN SHOWCASE
+   ========================================================================== */
+
+.dashboard-perspective-wrapper {
+  perspective: 1200px !important;
+  width: 80% !important;
+  max-width: 680px !important;
+  margin-bottom: 2rem !important;
+}
+
+.dashboard-mockup {
+  width: 100% !important;
+  transform: rotateY(-12deg) rotateX(8deg) rotateZ(2deg) !important;
+  border-radius: 0.75rem !important;
+  box-shadow: -20px 30px 60px rgba(0, 0, 0, 0.7) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+.floating-badge {
+  position: absolute !important;
+  background: rgba(15, 23, 42, 0.85) !important;
+  backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  padding: 0.75rem 1rem !important;
+  border-radius: 0.6rem !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.75rem !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4) !important;
+  z-index: 10 !important;
+}
+
+.badge-ev {
+  top: 10% !important;
+  right: 12% !important;
+}
+
+.badge-revenue {
+  bottom: 22% !important;
+  left: 10% !important;
+}
+
+.anh-dong {
+  animation: movepic 4s ease-in-out infinite;
+}
+
+@keyframes movepic {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================================
+   DASHBOARD GLOBAL LAYOUT
+   ========================================================================== */
+
+.dashboard-layout {
+  display: flex !important;
+  min-height: 100vh !important;
+  width: 100vw !important;
+  background-color: var(--bg-dashboard) !important;
+  overflow: hidden !important;
+}
+
+.main-content {
+  flex: 1 !important;
+  height: 100vh !important;
+  background-color: var(--bg-dashboard) !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  padding: 2rem !important;
+  box-sizing: border-box !important;
+  color: var(--text-main) !important;
+}
+
+/* ==========================================================================
+   SIDEBAR CLEAN THEME FIX
+   ========================================================================== */
+
+.sidebar {
+  width: 260px !important;
+  min-width: 260px !important;
+  height: 100vh !important;
+  background-color: var(--bg-sidebar) !important;
+  border-right: 1px solid var(--border-color) !important;
+  color: var(--text-main) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow-y: auto !important;
+}
+
+.sidebar-brand {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.75rem !important;
+  padding: 1.5rem 1.5rem 2rem !important;
+  background: transparent !important;
+  border: none !important;
+}
+
+.brand-icon {
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 0.5rem !important;
+  background-color: var(--primary-blue) !important;
+  color: #ffffff !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-weight: 800 !important;
+  font-size: 1.1rem !important;
+  flex-shrink: 0 !important;
+}
+
+.sidebar-brand * {
+  color: inherit !important;
+}
+
+.sidebar-menu {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.35rem !important;
+  padding: 0 1rem !important;
+  flex: 1 !important;
+  background: transparent !important;
+}
+
+.sidebar-footer {
+  padding: 1rem !important;
+  margin-top: auto !important;
+  background: transparent !important;
+}
+
+.sidebar .menu-item {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  width: 100% !important;
+  min-height: 46px !important;
+  border: none !important;
+  outline: none !important;
+  border-radius: 0.65rem !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  color: var(--text-main) !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.85rem !important;
+  padding: 0.75rem 1rem !important;
+  font-size: 0.95rem !important;
+  font-weight: 650 !important;
+  text-align: left !important;
+  cursor: pointer !important;
+  box-shadow: none !important;
+}
+
+.sidebar .menu-item svg {
+  color: currentColor !important;
+  stroke: currentColor !important;
+}
+
+/* Dark sidebar */
+body:not(.light-mode) .sidebar {
+  background-color: #05070c !important;
+  border-right-color: #1e293b !important;
+}
+
+body:not(.light-mode) .sidebar .menu-item:hover {
+  background: rgba(59, 130, 246, 0.14) !important;
+  color: #ffffff !important;
+}
+
+body:not(.light-mode) .sidebar .menu-item.active,
+body:not(.light-mode) .sidebar .menu-item[aria-current="page"] {
+  background: linear-gradient(90deg, rgba(59, 130, 246, 0.28) 0%, rgba(15, 23, 42, 0.92) 100%) !important;
+  color: #ffffff !important;
+  border-left: 3px solid #3b82f6 !important;
+}
+
+/* Light sidebar */
+body.light-mode .sidebar {
+  background-color: #ffffff !important;
+  border-right-color: #dbe3ee !important;
+}
+
+body.light-mode .sidebar .menu-item:hover {
+  background: #eef5ff !important;
+  color: #2563eb !important;
+}
+
+body.light-mode .sidebar .menu-item.active,
+body.light-mode .sidebar .menu-item[aria-current="page"] {
+  background: linear-gradient(90deg, #dbeafe 0%, #f1f5ff 100%) !important;
+  color: #0f172a !important;
+  border-left: 3px solid #2563eb !important;
+}
+
+body.light-mode .sidebar .menu-item *,
+body:not(.light-mode) .sidebar .menu-item * {
+  color: inherit !important;
+}
+
+/* ==========================================================================
+   TABLES
+   ========================================================================== */
+
+table {
+  color: var(--text-main);
+}
+
+thead,
+.table-header {
+  background-color: var(--bg-table-header);
+  color: var(--text-muted);
+}
+
+tbody,
+.table-row {
+  background-color: var(--bg-table-row);
+}
+
+body.light-mode .main-content table {
+  background-color: var(--bg-table-row) !important;
+  color: var(--text-main) !important;
+}
+
+body.light-mode .main-content thead,
+body.light-mode .main-content thead tr {
+  background-color: var(--bg-table-header) !important;
+}
+
+body.light-mode .main-content th {
+  background-color: var(--bg-table-header) !important;
+  color: var(--text-muted) !important;
+  border-color: var(--border-color) !important;
+}
+
+body.light-mode .main-content td {
+  background-color: var(--bg-table-row) !important;
+  color: var(--text-main) !important;
+  border-color: var(--border-soft) !important;
+}
+
+body.light-mode .main-content tr {
+  border-color: var(--border-soft) !important;
+}
+
+/* ==========================================================================
+   🔥 ULTRA GLASSMORPHISM SYSTEM WITH EXTRA DEPTH
+   ========================================================================== */
+
+.app-global-private-container {
+  width: 100vw !important;
+  height: 100vh !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+/* Lớp phủ mờ bãi xe */
+.app-global-backdrop-mask {
+  width: 100% !important;
+  height: 100% !important;
+  background: rgba(4, 6, 12, 0.62) !important; 
+  position: relative !important;
+}
+
+body.light-mode .app-global-backdrop-mask {
+  background: rgba(240, 244, 250, 0.72) !important;
+}
+
+body.light-mode .app-global-private-container .main-content,
+body:not(.light-mode) .app-global-private-container .main-content,
+.app-global-private-container .dashboard-layout,
+.app-global-private-container .main-content {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.app-global-private-container .main-content {
+  padding-top: 6.5rem !important; 
+}
+
+body.light-mode .main-content p {
+  color: #334155 !important; 
+}
+
+/* HEADER TRÀN VIỀN GHIM CỨNG BẤT ĐỘNG 100% */
+.main-content > header,
+.main-content > .header,
+.main-content > div:first-child,
+.dashboard-header {
+  position: fixed !important;
+  top: 0 !important;
+  right: 0 !important;
+  left: 260px !important; 
+  height: 70px !important; 
+  margin: 0 !important; 
+  border-radius: 0 !important; 
+  border-left: none !important;
+  border-top: none !important;
+  border-right: none !important;
+  border-bottom: 1px solid var(--border-color) !important;
+  padding: 0 2rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  z-index: 1000 !important; 
+}
+
+.app-global-private-container .main-content > header,
+.app-global-private-container .main-content > .header,
+.app-global-private-container .main-content > div:first-child,
+.dashboard-header {
+  background: rgba(12, 19, 34, 0.9) !important;
+  background-color: rgba(12, 19, 34, 0.9) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.4) !important;
+}
+
+body.light-mode .app-global-private-container .main-content > header,
+body.light-mode .app-global-private-container .main-content > .header,
+body.light-mode .app-global-private-container .main-content > div:first-child,
+body.light-mode .dashboard-header {
+  background: rgba(255, 255, 255, 0.95) !important;
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.12) !important;
+  box-shadow: 0 6px 30px rgba(15, 23, 42, 0.05) !important;
+}
+
+/* CARD KÍNH MỜ CHẾ ĐỘ TỐI */
+.app-global-private-container .theme-card,
+.app-global-private-container .stat-card,
+.app-global-private-container .chart-card,
+.app-global-private-container .report-card,
+.app-global-private-container .report-summary-card,
+.app-global-private-container .report-chart-card,
+.app-global-private-container .report-side-card,
+.app-global-private-container .report-operational-log,
+.app-global-private-container .occupancy-trends-box,
+.feature-card-glass,
+.main-content div[class*="card"],
+.main-content div[class*="box"],
+.main-content div[class*="Card"],
+.main-content div[class*="Box"],
+.app-global-private-container .main-content div[style*="background: #0c1322"],
+.app-global-private-container .main-content div[style*="background:#0c1322"],
+.app-global-private-container .main-content div[style*="background-color: #0c1322"],
+.app-global-private-container .main-content div[style*="background-color:#0c1322"],
+.app-global-private-container .main-content div[style*="background: rgb(12, 19, 34)"],
+.app-global-private-container .main-content div[style*="background-color: rgb(12, 19, 34)"] {
+  background: rgba(11, 17, 32, 0.84) !important; 
+  background-color: rgba(11, 17, 32, 0.84) !important;
+  backdrop-filter: blur(28px) !important; 
+  -webkit-backdrop-filter: blur(28px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 14px !important;
+  box-shadow: 0 30px 65px -10px rgba(0, 0, 0, 0.75), 
+              0 15px 30px -5px rgba(0, 0, 0, 0.5), 
+              inset 0 1px 1px 0 rgba(255, 255, 255, 0.18) !important;
+}
+
+.app-global-private-container .theme-card:hover,
+.app-global-private-container .stat-card:hover,
+.app-global-private-container .chart-card:hover,
+.app-global-private-container .report-card:hover,
+.app-global-private-container .report-summary-card:hover,
+.app-global-private-container .report-chart-card:hover,
+.app-global-private-container .report-side-card:hover,
+.app-global-private-container .report-operational-log:hover,
+.app-global-private-container .occupancy-trends-box:hover,
+.feature-card-glass:hover,
+.main-content div[class*="card"]:hover,
+.main-content div[class*="box"]:hover,
+.main-content div[class*="Card"]:hover,
+.main-content div[class*="Box"]:hover,
+.app-global-private-container .main-content div[style*="background"]:hover {
+  transform: translateY(-5px) !important;
+  border-color: rgba(59, 130, 246, 0.45) !important;
+  box-shadow: 0 40px 80px -15px rgba(0, 0, 0, 0.9), 
+              0 20px 40px -8px rgba(59, 130, 246, 0.35), 
+              inset 0 1px 1px 0 rgba(255, 255, 255, 0.3) !important;
+}
+
+/* CARD KÍNH MỜ CHẾ ĐỘ SÁNG */
+body.light-mode .app-global-private-container .theme-card,
+body.light-mode .app-global-private-container .stat-card,
+body.light-mode .app-global-private-container .chart-card,
+body.light-mode .app-global-private-container .report-card,
+body.light-mode .app-global-private-container .report-summary-card,
+body.light-mode .app-global-private-container .report-chart-card,
+body.light-mode .app-global-private-container .report-side-card,
+body.light-mode .app-global-private-container .report-operational-log,
+body.light-mode .app-global-private-container .occupancy-trends-box,
+body.light-mode .feature-card-glass,
+body.light-mode .main-content div[class*="card"],
+body.light-mode .main-content div[class*="box"],
+body.light-mode .main-content div[class*="Card"],
+body.light-mode .main-content div[class*="Box"],
+body.light-mode .app-global-private-container .main-content div[style*="background"],
+body.light-mode .app-global-private-container .main-content div[style*="background-color"] {
+  background: rgba(255, 255, 255, 0.92) !important;
+  background-color: rgba(255, 255, 255, 0.92) !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+  border: 1px solid rgba(15, 23, 42, 0.12) !important;
+  color: var(--text-main) !important;
+  box-shadow: 0 25px 55px -12px rgba(15, 23, 42, 0.12), 
+              0 10px 25px -5px rgba(15, 23, 42, 0.06), 
+              inset 0 1px 1px 0 rgba(255, 255, 255, 0.8) !important;
+}
+
+body.light-mode .app-global-private-container .theme-card:hover,
+body.light-mode .app-global-private-container .stat-card:hover,
+body.light-mode .app-global-private-container .chart-card:hover,
+body.light-mode .app-global-private-container .report-card:hover,
+body.light-mode .app-global-private-container .report-summary-card:hover,
+body.light-mode .app-global-private-container .report-chart-card:hover,
+body.light-mode .app-global-private-container .report-side-card:hover,
+body.light-mode .app-global-private-container .report-operational-log:hover,
+body.light-mode .app-global-private-container .occupancy-trends-box:hover,
+body.light-mode .feature-card-glass:hover,
+body.light-mode .main-content div[class*="card"]:hover,
+body.light-mode .main-content div[class*="box"]:hover,
+body.light-mode .main-content div[class*="Card"]:hover,
+body.light-mode .main-content div[class*="Box"]:hover,
+body.light-mode .app-global-private-container .main-content div[style*="background"]:hover {
+  transform: translateY(-5px) !important;
+  border-color: rgba(37, 99, 235, 0.4) !important;
+  box-shadow: 0 35px 70px -15px rgba(15, 23, 42, 0.2), 
+              0 15px 35px -10px rgba(37, 99, 235, 0.16), 
+              inset 0 1px 1px 0 rgba(255, 255, 255, 0.95) !important;
+}
+
+/* ==========================================================================
+   🔥 ULTRA CONTRAST SAFEGUARD - SỬA TRIỆT ĐỂ LỖI ẨN CHỮ TRẮNG Ở LIGHT MODE
+   ========================================================================== */
+
+/* Ép toàn bộ các class text chữ trắng của Tailwind (text-white, text-slate-50...) tự động đổi màu tối ở Light mode */
+body.light-mode .main-content .text-white,
+body.light-mode .main-content .text-slate-50,
+body.light-mode .main-content .text-slate-100,
+body.light-mode .main-content .text-gray-50,
+body.light-mode .main-content .text-gray-100,
+body.light-mode .main-content .text-neutral-50,
+body.light-mode .main-content .text-neutral-100,
+body.light-mode .main-content [class*="text-white"],
+body.light-mode .main-content [class*="text-slate-50"],
+body.light-mode .main-content [class*="text-slate-100"] {
+  color: var(--text-main) !important;
+}
+
+/* Ép toàn bộ mớ inline style chữ màu trắng (bất kể ghi hoa/thường) quay về màu tối tương phản cao ở Light mode */
+body.light-mode .main-content *:not(button)[style*="color"][style*="fff" i],
+body.light-mode .main-content *:not(button)[style*="color"][style*="white" i],
+body.light-mode .main-content *:not(button)[style*="color"][style*="255, 255"] {
+  color: var(--text-main) !important;
+}
+
+/* 👑 TITLES RESET */
+.main-content h1,
+.main-content h2,
+.main-content h3,
+.main-content h4,
+.main-content .page-title,
+.main-content [class*="title-text"] {
+  overflow: visible !important;
+  height: auto !important;
+  min-height: min-content !important;
+  line-height: 1.4 !important;
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .auth-container {
+    flex-direction: column !important;
+  }
+
+  .login-column {
+    width: 100% !important;
+    padding: 3rem 2rem !important;
+  }
+
+  .showcase-column {
+    width: 100% !important;
+    padding: 4rem 2rem !important;
+  }
+
+  .main-content {
+    padding: 1.25rem !important;
+  }
+}
