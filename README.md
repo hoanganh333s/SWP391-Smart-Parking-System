@@ -44,10 +44,9 @@ Hệ thống được xây dựng theo mô hình tách biệt Frontend – Backe
 
 ## 📸 Hình ảnh giao diện (Screenshots)
 
-| Sơ đồ bãi xe | Dashboard thống kê |
-| :---: | :---: |
-| ![Login](./docs/images/login.png) | ![Dashboard](./docs/images/dashboard.png) |![Booking Car](./docs/images/booking.png) |
-
+| Trang đăng nhập (Login) | Đặt chỗ / Sơ đồ bãi xe (Booking) | Dashboard thống kê |
+| :---: | :---: | :---: |
+| <img src="https://github.com/user-attachments/assets/179ea043-d22e-437d-a266-f04ea76ffdba" width="350" alt="Login" /> | <img src="https://github.com/user-attachments/assets/245a6ec2-350b-4ebb-8bf6-42c08c163121" width="350" alt="Booking" /> | <img src="https://github.com/user-attachments/assets/f65d100f-2297-43b8-85df-621523586f7a" width="350" alt="Dashboard" /> |
 
 ---
 
